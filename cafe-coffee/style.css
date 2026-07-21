@@ -89,6 +89,48 @@ img {
   background-color: var(--color-white);
 }
 
+/* ---- About セクション：左右2カラム（Grid）／ SP：縦並び ---- */
+/* Heroと逆配置：左＝テキスト／右＝画像 */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+/* 左カラム：テキストコンテンツ */
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 6vw 7vw;
+}
+
+/* 右カラム：メインビジュアル */
+.about__visual {
+  position: relative;
+  padding: 3rem 3rem 3rem 0;
+  background-color: var(--color-bg);
+}
+
+/* 額装（フレーム）のような装飾で、写真をおしゃれに見せる */
+.about__visual::before {
+  content: "";
+  position: absolute;
+  inset: 3.8rem 2.2rem 2.2rem 1.2rem;
+  border: 1px solid var(--color-accent);
+  z-index: 0;
+}
+
+.about__image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  max-height: 34rem;
+  object-fit: cover;
+}
+
 /* ============================================
    タイポグラフィ
 ============================================ */
@@ -131,6 +173,46 @@ img {
   max-width: 28em;
 }
 
+/* ---- About セクションの文字設定（Heroと統一） ---- */
+
+/* セクションラベル */
+.about__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.about__eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* キャッチコピー */
+.about__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* 本文 */
+.about__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2.1;
+  color: var(--color-gray);
+  max-width: 32em;
+}
+
 /* ============================================
    ボタン
 ============================================ */
@@ -165,12 +247,6 @@ img {
   transform-origin: left;
   transition: transform 0.4s ease;
   z-index: 0;
-}
-
-.hero__cta-text {
-  position: relative;
-  z-index: 1;
-  transition: color 0.35s ease;
 }
 
 .hero__cta:hover {
@@ -222,5 +298,37 @@ img {
   .hero__cta {
     width: 100%;
     padding: 1rem 0;
+  }
+}
+
+/* ---- About セクションのレスポンシブ ---- */
+@media (max-width: 1024px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  /* SPでは画像→テキストの順で表示（写真で惹きつけてから読ませる） */
+  .about__visual {
+    order: -1;
+    padding: 8vw 8vw 0;
+  }
+
+  .about__content {
+    padding: 10vw 8vw 12vw;
+  }
+
+  .about__image {
+    max-height: none;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__visual::before {
+    inset: 1.6rem 1rem 1rem 0.6rem;
+  }
+
+  .about__title {
+    line-height: 1.6;
   }
 }
