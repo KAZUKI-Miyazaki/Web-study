@@ -24,7 +24,7 @@
     <div class="hero__visual">
       <img
         class="hero__image"
-        src="images/hero.jpg"
+        src="images/cafeinterior.jpg"
         alt="海外のカフェを思わせる落ち着いた店内で、自家焙煎コーヒーと手作りケーキがテーブルに並んでいる様子"
         width="960"
         height="1200"
@@ -79,7 +79,7 @@
     <div class="about__visual">
       <img
         class="about__image"
-        src="images/about.jpg"
+        src="images/cafeinterior2.jpg"
         alt="本棚とコーヒーが置かれた、海外のカフェのような落ち着いた雰囲気の店内"
         width="960"
         height="1200"
@@ -132,5 +132,123 @@
 
   </section>
 
+  <!-- ============================================
+       Menu セクション
+       セクションタイトル＋説明文＋メニューカード3枚
+  ============================================ -->
+  <section class="menu" id="menu">
+
+    <!-- セクション見出しエリア -->
+    <div class="menu__header">
+      <p class="menu__eyebrow">Menu</p>
+
+      <h2 class="menu__title">
+        お気に入りの一杯と、<br>
+        手作りの美味しさを。
+      </h2>
+
+      <p class="menu__text">
+        自家焙煎コーヒーや手作りケーキ、<br>
+        軽食をご用意しています。<br>
+        ゆったりとした時間のお供に、<br>
+        お気に入りのメニューをお楽しみください。
+      </p>
+    </div>
+
+    <!-- メニューカード：PC 3列／タブレット 2列／SP 1列 -->
+    <ul class="menu__grid">
+      <li class="menu__card">
+        <img class="menu__image" src="images/coffe.jpg" alt="ハンドドリップで淹れる自家焙煎コーヒー" width="600" height="600">
+        <h3 class="menu__name">Hand Drip Coffee</h3>
+        <p class="menu__description">
+          自家焙煎豆を丁寧にハンドドリップで抽出した、<br>
+          香り豊かな一杯です。
+        </p>
+        <p class="menu__price">¥650</p>
+      </li>
+
+      <li class="menu__card">
+        <img class="menu__image" src="images/cake.jpg" alt="季節の手作りケーキ" width="600" height="600">
+        <h3 class="menu__name">Homemade Cake</h3>
+        <p class="menu__description">
+          毎日店内で焼き上げる、<br>
+          季節の手作りケーキです。
+        </p>
+        <p class="menu__price">¥580</p>
+      </li>
+
+      <li class="menu__card">
+        <img class="menu__image" src="images/sandwich.jpg" alt="新鮮な野菜を使用したサンドウィッチプレート" width="600" height="600">
+        <h3 class="menu__name">Sandwich Plate</h3>
+        <p class="menu__description">
+          新鮮な野菜を使用した、<br>
+          ボリュームあるサンドウィッチプレート。
+        </p>
+        <p class="menu__price">¥980</p>
+      </li>
+    </ul>
+
+  </section>
+
+  <!-- ============================================
+       Access セクション
+       セクションタイトル＋説明文＋店舗情報カード／地図
+  ============================================ -->
+  <section class="access" id="access">
+
+    <!-- セクション見出しエリア -->
+    <div class="access__header">
+      <p class="access__eyebrow">Access</p>
+
+      <h2 class="access__title">
+        Visit Our Cafe
+      </h2>
+
+      <p class="access__text">
+        店内にて、ご来店お待ちしております。
+      </p>
+    </div>
+
+    <!-- 2カラム：左＝店舗情報カード／右＝地図エリア -->
+    <div class="access__grid">
+
+      <!-- 左カラム：店舗情報カード -->
+      <div class="access__card">
+        <dl class="access__list">
+          <div class="access__item">
+            <dt class="access__label">Address</dt>
+            <dd class="access__value">〒000-0000<br>東京都〇〇区〇〇1-2-3</dd>
+          </div>
+
+          <div class="access__item">
+            <dt class="access__label">Business Hours</dt>
+            <dd class="access__value">8:00 - 19:00</dd>
+          </div>
+
+          <div class="access__item">
+            <dt class="access__label">Closed</dt>
+            <dd class="access__value">Wednesday</dd>
+          </div>
+
+          <div class="access__item">
+            <dt class="access__label">Phone</dt>
+            <dd class="access__value">000-0000-0000</dd>
+          </div>
+
+          <div class="access__item">
+            <dt class="access__label">Access</dt>
+            <dd class="access__value">〇〇駅より徒歩5分</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- 右カラム：地図エリア（現在は仮画像／将来iframeに差し替え可能） -->
+      <div class="access__map">
+        <img class="access__map-image" src="images/access-map.jpg" alt="Cafe Coffeeの店舗周辺地図" width="800" height="800">
+      </div>
+
+    </div>
+
+  </section>
 </body>
 </html>

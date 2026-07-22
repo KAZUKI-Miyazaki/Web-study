@@ -378,7 +378,7 @@ img {
 /* 写真1枚分の枠：拡大アニメーションがはみ出さないようクリップ */
 .gallery__item {
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 2px;
   background-color: var(--color-gray-light);
 }
 
@@ -466,6 +466,348 @@ img {
 
   .gallery__eyebrow::before,
   .gallery__eyebrow::after {
+    width: 1.5rem;
+  }
+}
+
+/* ============================================
+   Menu セクション CSS
+   構成：レイアウト → タイポグラフィ → レスポンシブ
+   ※既存（Hero / About / Gallery）のコードは変更せず、末尾に追記
+============================================ */
+
+/* ============================================
+   レイアウト
+============================================ */
+
+/* セクション全体 */
+.menu {
+  padding: 9vw 7vw;
+  background-color: var(--color-white);
+}
+
+/* 見出しエリア：中央寄せ */
+.menu__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 36em;
+  margin: 0 auto 4.5rem;
+  text-align: center;
+}
+
+/* メニューカード：PC 3列 */
+.menu__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* カード：写真を大きく見せ、ホバーでわずかに浮くアニメーション */
+.menu__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.menu__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(43, 36, 32, 0.1);
+}
+
+/* 写真：サイズを揃え、ホバーで上品に拡大 */
+.menu__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.6s ease;
+}
+
+.menu__card:hover .menu__image {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   タイポグラフィ
+============================================ */
+
+/* セクションラベル（Hero／Gallery のeyebrowと統一） */
+.menu__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.menu__eyebrow::before,
+.menu__eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* タイトル */
+.menu__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* 説明文 */
+.menu__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2;
+  color: var(--color-gray);
+}
+
+/* 商品名 */
+.menu__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* 商品の説明文 */
+.menu__description {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--color-gray);
+}
+
+/* 価格：アクセントカラーで強調 */
+.menu__price {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+}
+
+/* ============================================
+   レスポンシブ
+============================================ */
+
+/* タブレット：2列 */
+@media (max-width: 1024px) {
+  .menu {
+    padding: 12vw 8vw;
+  }
+
+  .menu__header {
+    margin-bottom: 3.5rem;
+  }
+
+  .menu__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* スマートフォン：1列 */
+@media (max-width: 640px) {
+  .menu__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .menu__eyebrow::before,
+  .menu__eyebrow::after {
+    width: 1.5rem;
+  }
+}
+
+/* ============================================
+   Access セクション CSS
+   構成：レイアウト → タイポグラフィ → レスポンシブ
+   ※既存（Hero / About / Gallery / Menu）のコードは変更せず、末尾に追記
+============================================ */
+
+/* ============================================
+   レイアウト
+============================================ */
+
+/* セクション全体 */
+.access {
+  padding: 9vw 7vw;
+  background-color: var(--color-bg);
+}
+
+/* 見出しエリア：中央寄せ */
+.access__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 36em;
+  margin: 0 auto 4.5rem;
+  text-align: center;
+}
+
+/* 2カラム：左＝店舗情報カード／右＝地図（PC 1025px以上） */
+.access__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+/* 店舗情報カード：背景・角丸・影で他セクションと統一感を出す */
+.access__card {
+  background-color: var(--color-white);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(43, 36, 32, 0.08);
+  padding: 3rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.access__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(43, 36, 32, 0.12);
+}
+
+/* 店舗情報リスト：ラベルと値を縦に並べる定義リスト */
+.access__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.access__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* 地図エリア：将来的にimgをiframeへ差し替えやすいよう
+   親要素（.access__map）でサイズを固定する構造にしている */
+.access__map {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 1 / 1;
+}
+
+.access__map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.access__map:hover .access__map-image {
+  transform: scale(1.04);
+}
+
+/* ============================================
+   タイポグラフィ
+============================================ */
+
+/* セクションラベル（他セクションのeyebrowと統一） */
+.access__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.access__eyebrow::before,
+.access__eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* タイトル */
+.access__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* 説明文 */
+.access__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2;
+  color: var(--color-gray);
+}
+
+/* 項目ラベル（Address／Business Hoursなど） */
+.access__label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+/* 項目の値 */
+.access__value {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* ============================================
+   レスポンシブ
+============================================ */
+
+/* Tablet（768〜1024px）：1カラム */
+@media (max-width: 1024px) {
+  .access {
+    padding: 12vw 8vw;
+  }
+
+  .access__header {
+    margin-bottom: 3.5rem;
+  }
+
+  .access__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .access__map {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Smartphone（767px以下）：1カラム */
+@media (max-width: 767px) {
+  .access__card {
+    padding: 2rem;
+  }
+
+  .access__eyebrow::before,
+  .access__eyebrow::after {
     width: 1.5rem;
   }
 }
