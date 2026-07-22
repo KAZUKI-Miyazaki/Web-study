@@ -811,3 +811,194 @@ img {
     width: 1.5rem;
   }
 }
+
+/* ============================================
+   Contact セクション CSS
+   構成：レイアウト → タイポグラフィ → ボタン → レスポンシブ
+   ※既存（Hero / About / Gallery / Menu / Access）のコードは変更せず、末尾に追記
+============================================ */
+
+/* ============================================
+   レイアウト
+============================================ */
+
+/* セクション全体 */
+.contact {
+  padding: 9vw 7vw;
+  background-color: var(--color-white);
+}
+
+/* 見出しエリア：中央寄せ */
+.contact__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 36em;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+/* お問い合わせカード：1カラム・中央配置 */
+.contact__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 3.5rem 3rem;
+  background-color: var(--color-bg);
+  border-radius: 4px;
+  box-shadow: 0 12px 28px rgba(43, 36, 32, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contact__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(43, 36, 32, 0.12);
+}
+
+/* メール・電話番号のリスト */
+.contact__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.contact__item {
+  display: flex;
+}
+
+/* ============================================
+   タイポグラフィ
+============================================ */
+
+/* セクションラベル（他セクションのeyebrowと統一） */
+.contact__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.contact__eyebrow::before,
+.contact__eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* タイトル */
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* 説明文 */
+.contact__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2;
+  color: var(--color-gray);
+}
+
+/* メール・電話リンク */
+.contact__link {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.contact__link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ============================================
+   ボタン
+============================================ */
+
+/* CTAボタン：背景色の変化とわずかな浮き上がりで上品に演出 */
+.contact__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.6rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 2px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background-color 0.35s ease, transform 0.35s ease;
+  min-width: 220px;
+}
+
+.contact__cta:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-3px);
+}
+
+.contact__cta:focus-visible {
+  outline: 2px solid var(--color-accent-hover);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   レスポンシブ
+============================================ */
+
+/* Tablet（768〜1024px） */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 12vw 8vw;
+  }
+
+  .contact__header {
+    margin-bottom: 3rem;
+  }
+
+  .contact__card {
+    padding: 3rem 2.5rem;
+  }
+}
+
+/* Smartphone（767px以下） */
+@media (max-width: 767px) {
+  .contact__card {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .contact__cta {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .contact__eyebrow::before,
+  .contact__eyebrow::after {
+    width: 1.5rem;
+  }
+}
