@@ -45,7 +45,7 @@ img {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: stretch;
-  min-height: 100dvh;
+  min-height: 100vh;
   background-color: var(--color-bg);
 }
 
@@ -104,6 +104,7 @@ img {
   flex-direction: column;
   gap: 1.75rem;
   padding: 6vw 7vw;
+  background-color: var(--color-white);
 }
 
 /* 右カラム：メインビジュアル */
@@ -249,6 +250,12 @@ img {
   z-index: 0;
 }
 
+.hero__cta-text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.35s ease;
+}
+
 .hero__cta:hover {
   color: var(--color-accent);
 }
@@ -330,5 +337,135 @@ img {
 
   .about__title {
     line-height: 1.6;
+  }
+}
+
+/* ============================================
+   Gallery セクション CSS
+   構成：レイアウト → タイポグラフィ → レスポンシブ
+   ※既存（Hero / About）のコードは変更せず、末尾に追記
+============================================ */
+
+/* ============================================
+   レイアウト
+============================================ */
+
+/* セクション全体：余白を広く取り、写真を主役に見せる */
+.gallery {
+  padding: 9vw 7vw;
+  background-color: var(--color-bg);
+}
+
+/* 見出しエリア：中央寄せでApple的なシンプルさを意識 */
+.gallery__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 36em;
+  margin: 0 auto 4.5rem;
+  text-align: center;
+}
+
+/* 写真グリッド：PC 3列×2段 */
+.gallery__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* 写真1枚分の枠：拡大アニメーションがはみ出さないようクリップ */
+.gallery__item {
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--color-gray-light);
+}
+
+/* 画像サイズを揃え、上品な拡大アニメーションを付与 */
+.gallery__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery__item:hover .gallery__image {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   タイポグラフィ
+============================================ */
+
+/* セクションラベル（Hero／Aboutのeyebrowと統一、中央寄せ用に調整） */
+.gallery__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.gallery__eyebrow::before,
+.gallery__eyebrow::after {
+  content: "";
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* タイトル */
+.gallery__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* 説明文 */
+.gallery__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 2;
+  color: var(--color-gray);
+}
+
+/* ============================================
+   レスポンシブ
+============================================ */
+
+/* タブレット：2列 */
+@media (max-width: 1024px) {
+  .gallery {
+    padding: 12vw 8vw;
+  }
+
+  .gallery__header {
+    margin-bottom: 3.5rem;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* スマートフォン：1列 */
+@media (max-width: 640px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .gallery__eyebrow::before,
+  .gallery__eyebrow::after {
+    width: 1.5rem;
   }
 }
