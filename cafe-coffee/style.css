@@ -1002,3 +1002,127 @@ img {
     width: 1.5rem;
   }
 }
+
+/* ============================================
+   Footer CSS
+   構成：レイアウト → タイポグラフィ → レスポンシブ
+   ※既存（Hero 〜 Contact）のコードは変更せず、末尾に追記
+============================================ */
+
+/* ============================================
+   レイアウト
+============================================ */
+
+/* Footer全体：中央配置・情報量を抑えたシンプルな余白設計 */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 6vw 7vw;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-light);
+  text-align: center;
+}
+
+/* ナビゲーションリスト：横並び */
+.footer__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* SNSリンクリスト：横並び */
+.footer__social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.75rem;
+}
+
+/* ============================================
+   タイポグラフィ
+============================================ */
+
+/* 店舗名（ロゴテキスト） */
+.footer__logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--color-text);
+}
+
+/* キャッチコピー */
+.footer__tagline {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gray);
+}
+
+/* ナビゲーションリンク：文字色が自然に変化 */
+.footer__nav-link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* SNSリンク：文字色が自然に変化 */
+.footer__social-link {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-gray);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__social-link:hover {
+  color: var(--color-accent);
+}
+
+/* コピーライト */
+.footer__copyright {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-gray);
+}
+
+/* ============================================
+   レスポンシブ
+============================================ */
+
+/* Tablet（768〜1024px） */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 10vw 8vw;
+    gap: 1.5rem;
+  }
+
+  .footer__nav-list {
+    gap: 1.5rem;
+  }
+}
+
+/* Smartphone（767px以下） */
+@media (max-width: 767px) {
+  .footer__nav-list {
+    gap: 1rem 1.5rem;
+  }
+
+  .footer__social {
+    gap: 1.25rem;
+  }
+}
